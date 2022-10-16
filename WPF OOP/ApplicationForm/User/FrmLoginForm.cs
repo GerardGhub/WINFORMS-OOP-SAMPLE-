@@ -21,7 +21,6 @@ namespace WPF_OOP
 
         DataSet dSet = new DataSet();
         readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-
         readonly myclasses xClass = new myclasses();
         IStoredProcedures objStorProc = null;
         readonly myglobal pointer_module = new myglobal();
@@ -33,7 +32,14 @@ namespace WPF_OOP
 
         private void FrmLoginForm_Load(object sender, EventArgs e)
         {
+            this.ConnectionInit();
             this.UseEffectMenuLoad();
+        }
+
+        private void ConnectionInit()
+        {
+
+            this.objStorProc = xClass.g_objStoredProc.GetCollections();
         }
 
         private void UseEffectMenuLoad()
@@ -60,7 +66,7 @@ namespace WPF_OOP
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-
+            this.LoginProcedure();
         }
 
         private void LoginProcedure() 
@@ -95,8 +101,41 @@ namespace WPF_OOP
 
                 //end of form validation
             }
+            else
+            {
+
+
+                NotAllowToUsedTheSystem();
+
             }
+        }
+
+
+        public void NotAllowToUsedTheSystem()
+        {
+
+            MetroFramework.MetroMessageBox
+            .Show(this, "Sorry! You are not allowed to use this system invalid credentials! ", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
+           xClass.ClearTxt(this.TxtUserName);
+            this.UseEffectMenuLoad();
 
 
         }
+
+        private void TxtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.LoginProcedure();
+            }
+        }
+
+        private void TxtUserName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.LoginProcedure();
+            }
+        }
+    }
 }

@@ -31,9 +31,9 @@
             this.TxtUserName = new System.Windows.Forms.TextBox();
             this.TxtPassword = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.BtnLogin = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,6 +44,7 @@
             this.TxtUserName.Size = new System.Drawing.Size(272, 22);
             this.TxtUserName.TabIndex = 0;
             this.TxtUserName.TextChanged += new System.EventHandler(this.TxtUserName_TextChanged);
+            this.TxtUserName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtUserName_KeyDown);
             // 
             // TxtPassword
             // 
@@ -52,6 +53,7 @@
             this.TxtPassword.Size = new System.Drawing.Size(272, 22);
             this.TxtPassword.TabIndex = 1;
             this.TxtPassword.TextChanged += new System.EventHandler(this.TxtPassword_TextChanged);
+            this.TxtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtPassword_KeyDown);
             // 
             // groupBox1
             // 
@@ -67,24 +69,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "User Information";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(49, 57);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Usename:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(49, 126);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 16);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Password:";
-            // 
             // BtnLogin
             // 
             this.BtnLogin.Enabled = false;
@@ -96,6 +80,24 @@
             this.BtnLogin.Text = "Login";
             this.BtnLogin.UseVisualStyleBackColor = true;
             this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(49, 126);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 16);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Password:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(49, 57);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Usename:";
             // 
             // FrmLoginForm
             // 

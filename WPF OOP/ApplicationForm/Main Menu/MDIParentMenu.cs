@@ -103,5 +103,10 @@ namespace WPF_OOP.Application.Main_Menu
                 childForm.Close();
             }
         }
+
+        private void MDIParentMenu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -819,6 +819,12 @@ namespace WPF_OOP.StoredProcedures
             textbox.ReadOnly = true;
         }
 
+        public void ClearTxt(TextBox textbox)
+        {
+            textbox.Text = String.Empty;
+
+        }
+
 
 
 

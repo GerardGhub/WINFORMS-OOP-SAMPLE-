@@ -33,13 +33,14 @@
             this.DgvUsers = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.materialBtnNew = new System.Windows.Forms.ToolStripButton();
-            this.matBtnEDit = new System.Windows.Forms.ToolStripButton();
+            this.BtnNew = new System.Windows.Forms.ToolStripButton();
+            this.BtnEdit = new System.Windows.Forms.ToolStripButton();
             this.matBtnDelete = new System.Windows.Forms.ToolStripButton();
             this.matBtnSave = new System.Windows.Forms.ToolStripButton();
             this.matBtnCancel = new System.Windows.Forms.ToolStripButton();
             this.label1 = new System.Windows.Forms.Label();
             this.LblTotalRecords = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvUsers)).BeginInit();
             this.panel1.SuspendLayout();
@@ -49,9 +50,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.DgvUsers);
-            this.groupBox1.Location = new System.Drawing.Point(216, 141);
+            this.groupBox1.Location = new System.Drawing.Point(31, 141);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(704, 294);
+            this.groupBox1.Size = new System.Drawing.Size(1086, 326);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Users";
@@ -67,7 +68,7 @@
             this.DgvUsers.ReadOnly = true;
             this.DgvUsers.RowHeadersWidth = 51;
             this.DgvUsers.RowTemplate.Height = 24;
-            this.DgvUsers.Size = new System.Drawing.Size(698, 273);
+            this.DgvUsers.Size = new System.Drawing.Size(1080, 305);
             this.DgvUsers.TabIndex = 0;
             // 
             // panel1
@@ -86,8 +87,8 @@
             this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip2.ImageScalingSize = new System.Drawing.Size(40, 40);
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.materialBtnNew,
-            this.matBtnEDit,
+            this.BtnNew,
+            this.BtnEdit,
             this.matBtnDelete,
             this.matBtnSave,
             this.matBtnCancel});
@@ -98,21 +99,22 @@
             this.toolStrip2.TabIndex = 2;
             this.toolStrip2.Text = "toolStrip2";
             // 
-            // materialBtnNew
+            // BtnNew
             // 
-            this.materialBtnNew.Image = ((System.Drawing.Image)(resources.GetObject("materialBtnNew.Image")));
-            this.materialBtnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.materialBtnNew.Name = "materialBtnNew";
-            this.materialBtnNew.Size = new System.Drawing.Size(87, 47);
-            this.materialBtnNew.Text = "&New";
+            this.BtnNew.Image = ((System.Drawing.Image)(resources.GetObject("BtnNew.Image")));
+            this.BtnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BtnNew.Name = "BtnNew";
+            this.BtnNew.Size = new System.Drawing.Size(87, 47);
+            this.BtnNew.Text = "&New";
+            this.BtnNew.Click += new System.EventHandler(this.BtnNew_Click);
             // 
-            // matBtnEDit
+            // BtnEdit
             // 
-            this.matBtnEDit.Image = ((System.Drawing.Image)(resources.GetObject("matBtnEDit.Image")));
-            this.matBtnEDit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.matBtnEDit.Name = "matBtnEDit";
-            this.matBtnEDit.Size = new System.Drawing.Size(83, 47);
-            this.matBtnEDit.Text = "&Edit";
+            this.BtnEdit.Image = ((System.Drawing.Image)(resources.GetObject("BtnEdit.Image")));
+            this.BtnEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BtnEdit.Name = "BtnEdit";
+            this.BtnEdit.Size = new System.Drawing.Size(83, 47);
+            this.BtnEdit.Text = "&Edit";
             // 
             // matBtnDelete
             // 
@@ -159,11 +161,20 @@
             this.LblTotalRecords.TabIndex = 7;
             this.LblTotalRecords.Text = "Total Items: ";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(910, 43);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(170, 22);
+            this.textBox1.TabIndex = 3;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
             // FrmUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1145, 545);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.LblTotalRecords);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
@@ -189,12 +200,13 @@
         private System.Windows.Forms.DataGridView DgvUsers;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStrip toolStrip2;
-        private System.Windows.Forms.ToolStripButton materialBtnNew;
-        private System.Windows.Forms.ToolStripButton matBtnEDit;
+        private System.Windows.Forms.ToolStripButton BtnNew;
+        private System.Windows.Forms.ToolStripButton BtnEdit;
         private System.Windows.Forms.ToolStripButton matBtnDelete;
         private System.Windows.Forms.ToolStripButton matBtnSave;
         private System.Windows.Forms.ToolStripButton matBtnCancel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label LblTotalRecords;
+        public System.Windows.Forms.TextBox textBox1;
     }
 }

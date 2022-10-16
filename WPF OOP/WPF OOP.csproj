@@ -79,6 +79,12 @@
     <Compile Include="ApplicationForm\User\FrmUsers.Designer.cs">
       <DependentUpon>FrmUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="ApplicationForm\User\Modals\FrmAddorEditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationForm\User\Modals\FrmAddorEditUser.Designer.cs">
+      <DependentUpon>FrmAddorEditUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\IStoredProcedures.cs" />
     <Compile Include="Models\UserFile.cs" />
     <Compile Include="Notifications\PopupNotifierClass.cs" />
@@ -99,6 +105,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ApplicationForm\User\FrmUsers.resx">
       <DependentUpon>FrmUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationForm\User\Modals\FrmAddorEditUser.resx">
+      <DependentUpon>FrmAddorEditUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -123,8 +132,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ApplicationForm\User\Modals\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

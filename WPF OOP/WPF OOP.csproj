@@ -58,6 +58,7 @@
     <Compile Include="Application\User\FrmLoginForm.Designer.cs">
       <DependentUpon>FrmLoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Notifications\PopupNotifierClass.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Application\Main Menu\MDIParentMenu.resx">

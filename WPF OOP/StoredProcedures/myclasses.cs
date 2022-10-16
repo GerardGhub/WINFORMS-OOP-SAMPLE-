@@ -819,10 +819,10 @@ namespace WPF_OOP.StoredProcedures
             textbox.ReadOnly = true;
         }
 
-        public void ClearTxt(TextBox textbox)
+        public void ClearTxt(TextBox textbox, TextBox textbox2)
         {
             textbox.Text = String.Empty;
-
+            textbox2.Text = String.Empty;
         }
 
 

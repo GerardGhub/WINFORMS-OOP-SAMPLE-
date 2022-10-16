@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using WPF_OOP.Application.Main_Menu;
 using WPF_OOP.Interfaces;
 using WPF_OOP.Notifications;
+using WPF_OOP.Repository;
 using WPF_OOP.StoredProcedures;
 
 namespace WPF_OOP
@@ -24,6 +25,7 @@ namespace WPF_OOP
         readonly myclasses xClass = new myclasses();
         IStoredProcedures objStorProc = null;
         readonly myglobal pointer_module = new myglobal();
+        UserFileRepository UserFileRepository = new UserFileRepository();
 
         public FrmLoginForm()
         {
@@ -73,18 +75,15 @@ namespace WPF_OOP
         {
 
             //User Stored Procedure Validate name & Password
-            this.dSet.Clear();
-            this.dSet = objStorProc.sp_userfile(0,
-                this.TxtUserName.Text.Trim(),
-                this.TxtPassword.Text.Trim(),
-                "",
-                "validate");
+
+            this.UserFileRepository.LoginValidation(this.TxtUserName.Text.Trim(), this.TxtPassword.Text.Trim()); 
+ 
+  
 
 
-
-            if (dSet.Tables[0].Rows.Count > 0)
+            if (this.UserFileRepository.dSet.Tables[0].Rows.Count > 0)
             {
-                userinfo.set_user_parameters(dSet);
+                userinfo.set_user_parameters(this.UserFileRepository.dSet);
                 myglobal.user_password = this.TxtPassword.Text;
 
                 string winpath = Environment.GetEnvironmentVariable("windir");
@@ -116,7 +115,7 @@ namespace WPF_OOP
 
             MetroFramework.MetroMessageBox
             .Show(this, "Sorry! You are not allowed to use this system invalid credentials! ", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
-           xClass.ClearTxt(this.TxtUserName);
+           xClass.ClearTxt(this.TxtUserName, this.TxtPassword);
             this.UseEffectMenuLoad();
 
 

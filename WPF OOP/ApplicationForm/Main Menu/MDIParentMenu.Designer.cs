@@ -82,9 +82,29 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.LblUserId = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.LblUserRightsId = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.LblUsername = new System.Windows.Forms.Label();
+            this.LblPassword = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.LblFirstName = new System.Windows.Forms.Label();
+            this.LblLastName = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.departmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.positionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.minimizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.maximizreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -97,7 +117,7 @@
             this.toolsMenu,
             this.windowsMenu,
             this.helpMenu});
-            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Location = new System.Drawing.Point(0, 28);
             this.menuStrip.MdiWindowListItem = this.windowsMenu;
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(843, 28);
@@ -117,6 +137,8 @@
             this.printPreviewToolStripMenuItem,
             this.printSetupToolStripMenuItem,
             this.toolStripSeparator5,
+            this.minimizeToolStripMenuItem,
+            this.maximizreToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileMenu.ImageTransparentColor = System.Drawing.SystemColors.ActiveBorder;
             this.fileMenu.Name = "fileMenu";
@@ -129,7 +151,7 @@
             this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.newToolStripMenuItem.Text = "&New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.ShowNewForm);
             // 
@@ -200,8 +222,8 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.exitToolStripMenuItem.Text = "E&xit";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.exitToolStripMenuItem.Text = "L&ogout";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolsStripMenuItem_Click);
             // 
             // editMenu
@@ -440,7 +462,7 @@
             this.printPreviewToolStripButton,
             this.toolStripSeparator2,
             this.helpToolStripButton});
-            this.toolStrip.Location = new System.Drawing.Point(0, 28);
+            this.toolStrip.Location = new System.Drawing.Point(0, 56);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Size = new System.Drawing.Size(843, 27);
             this.toolStrip.TabIndex = 1;
@@ -530,14 +552,190 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(49, 20);
             this.toolStripStatusLabel.Text = "Status";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(55, 109);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 16);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "User Id:";
+            // 
+            // LblUserId
+            // 
+            this.LblUserId.AutoSize = true;
+            this.LblUserId.Location = new System.Drawing.Point(114, 109);
+            this.LblUserId.Name = "LblUserId";
+            this.LblUserId.Size = new System.Drawing.Size(53, 16);
+            this.LblUserId.TabIndex = 5;
+            this.LblUserId.Text = "User Id:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(55, 136);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(94, 16);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "User Rights Id:";
+            // 
+            // LblUserRightsId
+            // 
+            this.LblUserRightsId.AutoSize = true;
+            this.LblUserRightsId.Location = new System.Drawing.Point(160, 136);
+            this.LblUserRightsId.Name = "LblUserRightsId";
+            this.LblUserRightsId.Size = new System.Drawing.Size(53, 16);
+            this.LblUserRightsId.TabIndex = 7;
+            this.LblUserRightsId.Text = "User Id:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(55, 161);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(79, 16);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "User Name:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(55, 186);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(73, 16);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Password :";
+            // 
+            // LblUsername
+            // 
+            this.LblUsername.AutoSize = true;
+            this.LblUsername.Location = new System.Drawing.Point(160, 162);
+            this.LblUsername.Name = "LblUsername";
+            this.LblUsername.Size = new System.Drawing.Size(79, 16);
+            this.LblUsername.TabIndex = 10;
+            this.LblUsername.Text = "User Name:";
+            // 
+            // LblPassword
+            // 
+            this.LblPassword.AutoSize = true;
+            this.LblPassword.Location = new System.Drawing.Point(160, 186);
+            this.LblPassword.Name = "LblPassword";
+            this.LblPassword.Size = new System.Drawing.Size(79, 16);
+            this.LblPassword.TabIndex = 11;
+            this.LblPassword.Text = "User Name:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(55, 212);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(75, 16);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "FirstName :";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(55, 240);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(75, 16);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "LastName :";
+            // 
+            // LblFirstName
+            // 
+            this.LblFirstName.AutoSize = true;
+            this.LblFirstName.Location = new System.Drawing.Point(159, 214);
+            this.LblFirstName.Name = "LblFirstName";
+            this.LblFirstName.Size = new System.Drawing.Size(75, 16);
+            this.LblFirstName.TabIndex = 14;
+            this.LblFirstName.Text = "FirstName :";
+            // 
+            // LblLastName
+            // 
+            this.LblLastName.AutoSize = true;
+            this.LblLastName.Location = new System.Drawing.Point(159, 240);
+            this.LblLastName.Name = "LblLastName";
+            this.LblLastName.Size = new System.Drawing.Size(75, 16);
+            this.LblLastName.TabIndex = 15;
+            this.LblLastName.Text = "LastName :";
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.userToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(843, 28);
+            this.menuStrip1.TabIndex = 16;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // userToolStripMenuItem
+            // 
+            this.userToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.userToolStripMenuItem1,
+            this.departmentToolStripMenuItem,
+            this.positionToolStripMenuItem});
+            this.userToolStripMenuItem.Name = "userToolStripMenuItem";
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(52, 24);
+            this.userToolStripMenuItem.Text = "User";
+            // 
+            // userToolStripMenuItem1
+            // 
+            this.userToolStripMenuItem1.Name = "userToolStripMenuItem1";
+            this.userToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.userToolStripMenuItem1.Text = "User";
+            this.userToolStripMenuItem1.Click += new System.EventHandler(this.userToolStripMenuItem1_Click);
+            // 
+            // departmentToolStripMenuItem
+            // 
+            this.departmentToolStripMenuItem.Name = "departmentToolStripMenuItem";
+            this.departmentToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.departmentToolStripMenuItem.Text = "Department";
+            // 
+            // positionToolStripMenuItem
+            // 
+            this.positionToolStripMenuItem.Name = "positionToolStripMenuItem";
+            this.positionToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.positionToolStripMenuItem.Text = "Position";
+            // 
+            // minimizeToolStripMenuItem
+            // 
+            this.minimizeToolStripMenuItem.Name = "minimizeToolStripMenuItem";
+            this.minimizeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.minimizeToolStripMenuItem.Text = "Minimize";
+            this.minimizeToolStripMenuItem.Click += new System.EventHandler(this.minimizeToolStripMenuItem_Click);
+            // 
+            // maximizreToolStripMenuItem
+            // 
+            this.maximizreToolStripMenuItem.Name = "maximizreToolStripMenuItem";
+            this.maximizreToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.maximizreToolStripMenuItem.Text = "Maximize";
+            this.maximizreToolStripMenuItem.Click += new System.EventHandler(this.maximizreToolStripMenuItem_Click);
+            // 
             // MDIParentMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(843, 558);
+            this.ControlBox = false;
+            this.Controls.Add(this.LblLastName);
+            this.Controls.Add(this.LblFirstName);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.LblPassword);
+            this.Controls.Add(this.LblUsername);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.LblUserRightsId);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.LblUserId);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.menuStrip);
+            this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -552,6 +750,8 @@
             this.toolStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -611,6 +811,25 @@
         private System.Windows.Forms.ToolStripButton printPreviewToolStripButton;
         private System.Windows.Forms.ToolStripButton helpToolStripButton;
         private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LblUserId;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label LblUserRightsId;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label LblUsername;
+        private System.Windows.Forms.Label LblPassword;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label LblFirstName;
+        private System.Windows.Forms.Label LblLastName;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem departmentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem positionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem minimizeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem maximizreToolStripMenuItem;
     }
 }
 

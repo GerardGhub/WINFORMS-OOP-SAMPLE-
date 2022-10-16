@@ -73,11 +73,19 @@
     <Compile Include="ApplicationForm\User\FrmLoginForm.Designer.cs">
       <DependentUpon>FrmLoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ApplicationForm\User\FrmUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationForm\User\FrmUsers.Designer.cs">
+      <DependentUpon>FrmUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\IStoredProcedures.cs" />
     <Compile Include="Models\UserFile.cs" />
     <Compile Include="Notifications\PopupNotifierClass.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Interfaces\IUserFileRepository.cs" />
+    <Compile Include="Repository\UserFileRepository.cs" />
     <Compile Include="StoredProcedures\myclasses.cs" />
     <Compile Include="StoredProcedures\myglobal.cs" />
     <Compile Include="StoredProcedures\StoredProcedures.cs" />
@@ -88,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ApplicationForm\User\FrmLoginForm.resx">
       <DependentUpon>FrmLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationForm\User\FrmUsers.resx">
+      <DependentUpon>FrmUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -113,7 +124,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Repository\" />
+    <Folder Include="ApplicationForm\User\Modals\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

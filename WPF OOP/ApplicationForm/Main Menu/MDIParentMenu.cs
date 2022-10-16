@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WPF_OOP.ApplicationForm.User;
+using WPF_OOP.StoredProcedures;
 
 namespace WPF_OOP.Application.Main_Menu
 {
@@ -51,7 +53,21 @@ namespace WPF_OOP.Application.Main_Menu
 
         private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (MetroFramework.MetroMessageBox
+                .Show(this, "Are you sure that you want to Logout " + this.LblFirstName.Text + " ?", "Question", 
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+
+                this.Hide();
+                FrmLoginForm Login = new FrmLoginForm();
+                Login.ShowDialog();
+                this.Close();
+            }
+            else
+            {
+
+                return;
+            }
         }
 
         private void CutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -106,7 +122,34 @@ namespace WPF_OOP.Application.Main_Menu
 
         private void MDIParentMenu_Load(object sender, EventArgs e)
         {
+            this.CurrentUserLoginBinding();
+        }
 
+        private void CurrentUserLoginBinding()
+        {
+            this.LblUserId.Text = userinfo.user_id.ToString();
+            this.LblUserRightsId.Text = userinfo.user_rights_id.ToString();
+            this.LblUsername.Text = userinfo.user_name;
+            this.LblPassword.Text = userinfo.password;
+            this.LblFirstName.Text = userinfo.emp_name;
+            this.LblLastName.Text = userinfo.emp_lastname;
+        }
+
+        private void userToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmUsers User = new FrmUsers();
+            User.MdiParent = this;
+            User.Show();
+        }
+
+        private void minimizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void maximizreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
         }
     }
 }

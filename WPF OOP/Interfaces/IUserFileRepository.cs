@@ -12,6 +12,7 @@ namespace WPF_OOP.Repository
         void LoginValidation(string Username, string Password);
 
         void GetUsers(System.Windows.Forms.DataGridView DataGridViews);
+        void ValidateUserIfExist(string UserName, string FirstName, string LastName);
 
     }
 }

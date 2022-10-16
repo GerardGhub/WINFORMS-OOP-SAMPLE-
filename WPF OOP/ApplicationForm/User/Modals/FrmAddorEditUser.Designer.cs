@@ -117,6 +117,7 @@
             this.BtnSave.TabIndex = 8;
             this.BtnSave.Text = "Save";
             this.BtnSave.UseVisualStyleBackColor = true;
+            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // textBox1
             // 
@@ -144,6 +145,7 @@
             this.Controls.Add(this.TxtFirstName);
             this.Name = "FrmAddorEditUser";
             this.Text = "FrmAddorEditUser";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmAddorEditUser_FormClosing);
             this.Load += new System.EventHandler(this.FrmAddorEditUser_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

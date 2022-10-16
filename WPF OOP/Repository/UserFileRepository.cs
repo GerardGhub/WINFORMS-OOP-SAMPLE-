@@ -47,6 +47,25 @@ namespace WPF_OOP.Repository
 
         }
 
+        public void ValidateUserIfExist(string UserName, string FirstName, string LastName)
+        {
+            this.ConnectionInit();
+            dSet.Clear();
+            dSet = objStorProc.sp_userfile(0,0,
+                UserName,
+                "",
+                FirstName,
+                "",
+                "",
+                "",
+                LastName,
+                "",
+                "",
+                "",
+                "",
+                "getbyname");
+        }
+
         private void ConnectionInit()
         {
 

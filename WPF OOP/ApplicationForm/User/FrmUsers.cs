@@ -20,7 +20,7 @@ namespace WPF_OOP.ApplicationForm.User
     {
 
 
-        //TblCustomersRepository TblCustomerRepo = new TblCustomersRepository();
+
         UserFileRepository UserFileRepository = new UserFileRepository();
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         IStoredProcedures g_objStoredProcCollection = null;
@@ -39,6 +39,7 @@ namespace WPF_OOP.ApplicationForm.User
             this.ConnetionString();
             this.UserFileRepository.GetUsers (this.DgvUsers);
             this.LblTotalRecords.Text = this.DgvUsers.RowCount.ToString();
+            this.textBox1.Text = String.Empty;
         }
 
         private void ConnetionString()
@@ -55,7 +56,7 @@ namespace WPF_OOP.ApplicationForm.User
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-         
+            this.FrmUsers_Load(sender, e);
         }
     }
 }

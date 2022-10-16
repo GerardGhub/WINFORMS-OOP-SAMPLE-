@@ -141,7 +141,6 @@ namespace WPF_OOP.Interfaces
             string requestor_type,
             string Unit,
             string gender,
-            Byte[] image_employee,
             string mode);
 
         DataSet sp_userfileIncrement(int userfile_id,

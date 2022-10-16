@@ -14,9 +14,33 @@ namespace WPF_OOP
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmLoginForm());
+            try
+            {
+
+
+                if (Environment.OSVersion.Version.Major == 6)
+                    //SetProcessDPIAware();
+
+
+
+                    System.Windows.Forms.Application.EnableVisualStyles();
+               System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
+
+
+                FrmLoginForm login = new FrmLoginForm();
+                login.Show();
+
+                System.Windows.Forms.Application.Run();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
+
+
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern bool SetProcessDPIAware();
     }
 }

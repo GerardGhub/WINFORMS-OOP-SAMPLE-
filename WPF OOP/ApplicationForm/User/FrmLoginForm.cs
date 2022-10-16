@@ -9,7 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WPF_OOP.Application.Main_Menu;
+using WPF_OOP.Interfaces;
 using WPF_OOP.Notifications;
+using WPF_OOP.StoredProcedures;
 
 namespace WPF_OOP
 {

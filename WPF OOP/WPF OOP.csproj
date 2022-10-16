@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoSproc">
+      <HintPath>..\..\..\..\Downloads\AutoSproc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,25 +49,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application\Main Menu\MDIParentMenu.cs">
+    <Compile Include="ApplicationForm\Main Menu\MDIParentMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Application\Main Menu\MDIParentMenu.Designer.cs">
+    <Compile Include="ApplicationForm\Main Menu\MDIParentMenu.Designer.cs">
       <DependentUpon>MDIParentMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Application\User\FrmLoginForm.cs">
+    <Compile Include="ApplicationForm\User\FrmLoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Application\User\FrmLoginForm.Designer.cs">
+    <Compile Include="ApplicationForm\User\FrmLoginForm.Designer.cs">
       <DependentUpon>FrmLoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IStoredProcedures.cs" />
     <Compile Include="Notifications\PopupNotifierClass.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Application\Main Menu\MDIParentMenu.resx">
+    <Compile Include="StoredProcedures\myclasses.cs" />
+    <Compile Include="StoredProcedures\myglobal.cs" />
+    <Compile Include="StoredProcedures\StoredProcedures.cs" />
+    <Compile Include="StoredProcedures\userinfo.cs" />
+    <Compile Include="StoredProcedures\user_info.cs" />
+    <EmbeddedResource Include="ApplicationForm\Main Menu\MDIParentMenu.resx">
       <DependentUpon>MDIParentMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Application\User\FrmLoginForm.resx">
+    <EmbeddedResource Include="ApplicationForm\User\FrmLoginForm.resx">
       <DependentUpon>FrmLoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -90,10 +99,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Interfaces\" />
     <Folder Include="Models\" />
     <Folder Include="Repository\" />
-    <Folder Include="StoredProcedures\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -176,6 +176,11 @@ namespace WPF_OOP.ApplicationForm.User.Modals
         {
             this.textBox1.Text = "SuccessFully Save";
         }
+
+        private void TxtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           
+        }
     }
 
 

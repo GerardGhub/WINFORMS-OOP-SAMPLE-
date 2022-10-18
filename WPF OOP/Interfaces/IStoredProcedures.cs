@@ -38,94 +38,10 @@ namespace WPF_OOP.Interfaces
 
         //Move order
 
-        DataSet rdf_sp_move_order(int move_id, string order_no, string date_time, string warehouse, string account_title, string customer, string address, string feed_code, string feed_type, string sack_bin, string production_date, string qty, string uom, string qty_received, string available, string grand_total, string production, string added_by, string date_added, int bags, string cancel_by, string cancel_date, string myfg_id, string mode);
-
-        DataSet rdf_sp_transact_rdf_move_order(int move_id, string order_no, string date_time, string warehouse, string account_title, string customer, string address, string feed_code, string feed_type, string sack_bin, string production_date, float qty, string uom, string qty_received, float available, float grand_total, string production, string added_by, string date_added, int is_active, float bags, string platenumber, string mode);
-
-
-        DataSet sp_transaction_in(int transact_id, string item_code, string item_description, string category, string supplier, string qty, string time_stamp, string mfg_date, string expiry_date, string remarks, string date_added, string added_by, string expiry_days, string transact_number, string material_id, string mode);
-
-        DataSet sp_transaction_out(int transact_id, string item_code, string item_description, string category, string supplier, string qty, string time_stamp, string mfg_date, string expiry_date, string remarks, string date_added, string added_by, string expiry_days, string transact_number, string material_id, string counter_map, string last_stock, string warehouse, string account_title, string customer, string address, string reason, string descripto, string mode);
+  
 
 
 
-
-
-
-
-
-        DataSet sp_employee_new(int employee_id,
-                          string employee_number,
-                          string lastname,
-                          string firstname,
-                          string middlename,
-                          string address,
-                          string gender,
-                          string contactno,
-                          DateTime birthdate,
-                          string sss_number,
-                          string tin_number,
-                          int civil_status_id,
-                          int tax_id,
-                          int department_id,
-                          int section_id,
-                          int position_id,
-                          int employment_status_id,
-                          DateTime date_hired,
-                          DateTime date_regularization,
-                          string PermanentAddress,
-                          string philhealth_number,
-                          string hdmf_number,
-                          string hdmf_rtn,
-                          string salary_rate,
-                          string salary_structure,
-                          int salary_type_id,
-                          int workers_id,
-                          string mode,
-                          string InCaseOfEmergencyName,
-                          string InCaseOfEmergencyNumber,
-                            string Ros_hrd,
-                            string remarks,
-                          Byte[] image_employee
-                          );
-
-
-
-        DataSet sp_micro_new(int item_id,
-                                int item_category,
-                                string item_code,
-                                int supplier,
-                                string item_description,
-                                string classification,
-                                string quantity,
-                                DateTime date_added,
-                                string expiration_details,
-                                string delivery_details,
-                                string added_by,
-                                string item_location,
-                                string item_remarks,
-                                string item_added_by,
-                                string per_bag,
-                                string mode,
-                     Byte[] raw_material_image
-                     );
-
-        DataSet sp_micro_new(int item_id, string item_code, string mode);
-        DataSet sp_employee_new(int employee_id, string employee_number, string mode);
-        DataSet sp_employee_new(int employee_id, DateTime date_resigned, string mode);
-
-        DataSet sp_attendance_monitoring(int attendance_monitoring_id
-                                          , DateTime date_created
-                                          , int employee_id
-                                          , int leave_id
-                                          , string reason_cause
-                                          , int clinic_id
-                                          , bool with_leave
-                                          , bool with_medical
-                                          , int doctors_id
-                                          , int sickness_id
-                                          , int user_id
-                                          , string mode);
 
 
 

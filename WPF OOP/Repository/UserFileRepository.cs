@@ -43,8 +43,6 @@ namespace WPF_OOP.Repository
             "",
             "validate");
 
-
-
         }
 
         public void ValidateUserIfExist(string UserName, string FirstName, string LastName)

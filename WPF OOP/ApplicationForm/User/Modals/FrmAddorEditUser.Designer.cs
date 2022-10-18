@@ -107,6 +107,7 @@
             this.TxtPassword.Size = new System.Drawing.Size(147, 22);
             this.TxtPassword.TabIndex = 6;
             this.TxtPassword.TextChanged += new System.EventHandler(this.TxtPassword_TextChanged);
+            this.TxtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPassword_KeyPress);
             // 
             // BtnSave
             // 
@@ -144,6 +145,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TxtFirstName);
             this.Name = "FrmAddorEditUser";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmAddorEditUser";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmAddorEditUser_FormClosing);
             this.Load += new System.EventHandler(this.FrmAddorEditUser_Load);

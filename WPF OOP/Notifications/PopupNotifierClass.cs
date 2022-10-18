@@ -21,7 +21,7 @@ namespace WPF_OOP.Notifications
             popup.TitleColor = Color.White;
             popup.TitlePadding = new Padding(255, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Data Already Exist!";
+            popup.ContentText = "Data Already Exist! ";
             popup.ContentColor = Color.White;
             popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
             popup.Size = new Size(350, 100);

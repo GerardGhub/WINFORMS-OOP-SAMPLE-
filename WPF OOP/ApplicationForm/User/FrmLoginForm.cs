@@ -40,7 +40,6 @@ namespace WPF_OOP
 
         private void ConnectionInit()
         {
-
             this.objStorProc = xClass.g_objStoredProc.GetCollections();
         }
 
@@ -86,9 +85,9 @@ namespace WPF_OOP
                 userinfo.set_user_parameters(this.UserFileRepository.dSet);
                 myglobal.user_password = this.TxtPassword.Text;
 
-                string winpath = Environment.GetEnvironmentVariable("windir");
-                string path = System.IO.Path.GetDirectoryName(
-                System.Windows.Forms.Application.ExecutablePath);
+                //string winpath = Environment.GetEnvironmentVariable("windir");
+                //string path = System.IO.Path.GetDirectoryName(
+                //System.Windows.Forms.Application.ExecutablePath);
 
 
 

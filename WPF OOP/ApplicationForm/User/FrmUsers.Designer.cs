@@ -41,9 +41,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.LblTotalRecords = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.userfile_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_rights_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employee_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employee_lastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvUsers)).BeginInit();
             this.panel1.SuspendLayout();
@@ -65,6 +68,13 @@
             this.DgvUsers.AllowUserToAddRows = false;
             this.DgvUsers.AllowUserToDeleteRows = false;
             this.DgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.userfile_id,
+            this.user_rights_id,
+            this.username,
+            this.password,
+            this.employee_name,
+            this.employee_lastname});
             this.DgvUsers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgvUsers.Location = new System.Drawing.Point(3, 18);
             this.DgvUsers.Name = "DgvUsers";
@@ -172,32 +182,59 @@
             this.textBox1.TabIndex = 3;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // button1
+            // userfile_id
             // 
-            this.button1.Location = new System.Drawing.Point(332, 112);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
+            this.userfile_id.DataPropertyName = "userfile_id";
+            this.userfile_id.HeaderText = "ID";
+            this.userfile_id.MinimumWidth = 6;
+            this.userfile_id.Name = "userfile_id";
+            this.userfile_id.ReadOnly = true;
+            this.userfile_id.Width = 125;
             // 
-            // button2
+            // user_rights_id
             // 
-            this.button2.Location = new System.Drawing.Point(413, 112);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Edit";
-            this.button2.UseVisualStyleBackColor = true;
+            this.user_rights_id.DataPropertyName = "user_rights_id";
+            this.user_rights_id.HeaderText = "RIGHTS ID";
+            this.user_rights_id.MinimumWidth = 6;
+            this.user_rights_id.Name = "user_rights_id";
+            this.user_rights_id.ReadOnly = true;
+            this.user_rights_id.Width = 125;
             // 
-            // button3
+            // username
             // 
-            this.button3.Location = new System.Drawing.Point(240, 112);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "New";
-            this.button3.UseVisualStyleBackColor = true;
+            this.username.DataPropertyName = "username";
+            this.username.HeaderText = "USERNAME";
+            this.username.MinimumWidth = 6;
+            this.username.Name = "username";
+            this.username.ReadOnly = true;
+            this.username.Width = 125;
+            // 
+            // password
+            // 
+            this.password.DataPropertyName = "password";
+            this.password.HeaderText = "PASSWORD";
+            this.password.MinimumWidth = 6;
+            this.password.Name = "password";
+            this.password.ReadOnly = true;
+            this.password.Width = 125;
+            // 
+            // employee_name
+            // 
+            this.employee_name.DataPropertyName = "employee_name";
+            this.employee_name.HeaderText = "NAME";
+            this.employee_name.MinimumWidth = 6;
+            this.employee_name.Name = "employee_name";
+            this.employee_name.ReadOnly = true;
+            this.employee_name.Width = 125;
+            // 
+            // employee_lastname
+            // 
+            this.employee_lastname.DataPropertyName = "employee_lastname";
+            this.employee_lastname.HeaderText = "LASTNAME";
+            this.employee_lastname.MinimumWidth = 6;
+            this.employee_lastname.Name = "employee_lastname";
+            this.employee_lastname.ReadOnly = true;
+            this.employee_lastname.Width = 125;
             // 
             // FrmUsers
             // 
@@ -205,9 +242,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1145, 545);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.LblTotalRecords);
             this.Controls.Add(this.label1);
@@ -243,8 +277,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label LblTotalRecords;
         public System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userfile_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn user_rights_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn username;
+        private System.Windows.Forms.DataGridViewTextBoxColumn password;
+        private System.Windows.Forms.DataGridViewTextBoxColumn employee_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn employee_lastname;
     }
 }

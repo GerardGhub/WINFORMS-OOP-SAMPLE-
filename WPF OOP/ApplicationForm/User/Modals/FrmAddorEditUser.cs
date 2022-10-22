@@ -19,10 +19,11 @@ namespace WPF_OOP.ApplicationForm.User.Modals
     {
         readonly FrmUsers ths;
         UserFile UserFile = new UserFile();
-        UserFileRepository UserRepository = new UserFileRepository();
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        readonly UserFileRepository UserRepository = new UserFileRepository();
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         IStoredProcedures g_objStoredProcCollection = null;
         readonly myclasses myClass = new myclasses();
+        DataSet dSet = new DataSet();
         public FrmAddorEditUser(FrmUsers frm,  string Mode)
         {
             InitializeComponent();
@@ -35,7 +36,26 @@ namespace WPF_OOP.ApplicationForm.User.Modals
         {
             this.WindowsLoadData();
             this.ConnetionString();
+
+            if (this.UserFile.Mode == "ADD")
+            {
+                this.loadUser_type();
+                this.loadDepartment();
+            }
         }
+
+
+        public void loadDepartment()
+        {
+            this.myClass.fillComboBoxDepartment(this.CboDepartment, "department_dropdown_with_unit", dSet);
+            this.UserFile.Department = Convert.ToInt32(this.CboDepartment.SelectedValue.ToString());
+        }
+
+        public void loadUser_type()
+        {
+            this.myClass.fillComboBox(this.CboUserRole, "user_type", dSet);
+        }
+
 
         private void ConnetionString()
         {
@@ -82,7 +102,28 @@ namespace WPF_OOP.ApplicationForm.User.Modals
 
         private void MetroSave()
         {
+            if (UserFile.Mode == "ADD")
+            {
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
 
+                    this.UserRepository.AddUser(0,this.UserFile.User_Rights_Id, this.TxtuserName.Text.Trim(), this.TxtPassword.Text.Trim(),
+                        this.TxtFirstName.Text.Trim(), this.UserFile.User_Section, this.UserFile.Receiving_Status, this.UserFile.Position, this.TxtLastName.Text.Trim(), this.UserFile.Department, this.UserFile.Requestor_Type,
+                        this.UserFile.Unit, this.UserFile.Gender, "add");
+
+
+                    textBox1.Text = "Save";
+                    this.GlobalStatePopup.SuccessFullySave();
+
+
+                    this.Close();
+
+                }
+                else
+                {
+                    return;
+                }
+            }
         }
 
 
@@ -180,6 +221,16 @@ namespace WPF_OOP.ApplicationForm.User.Modals
         private void TxtPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
            
+        }
+
+        private void CboUserRole_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            this.UserFile.User_Rights_Id = Convert.ToInt32(this.CboUserRole.SelectedValue);
+        }
+
+        private void CboDepartment_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            this.UserFile.Department = Convert.ToInt32(this.CboDepartment.SelectedValue.ToString());
         }
     }
 

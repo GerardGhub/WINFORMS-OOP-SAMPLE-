@@ -7,12 +7,17 @@ using System.Threading.Tasks;
 
 namespace WPF_OOP.Repository
 {
+
     internal interface IUserFileRepository
     {
         void LoginValidation(string Username, string Password);
 
         void GetUsers(System.Windows.Forms.DataGridView DataGridViews);
         void ValidateUserIfExist(string UserName, string FirstName, string LastName);
+
+        void AddUser(int UserFileId, int UserRightsId, string Username, string Password, string EmployeeName, string UserSection,
+            string ReceivingStatus, int Position, string EmployeeLastName, int Department, string RequestorType, string Unit,
+            string Gender, string Mode);
 
     }
 }

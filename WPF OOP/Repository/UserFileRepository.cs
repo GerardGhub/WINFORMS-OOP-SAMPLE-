@@ -17,6 +17,26 @@ namespace WPF_OOP.Repository
       IStoredProcedures objStorProc = null;
         int TotalRecords = 0;
 
+        public void AddUser(int UserFileId, int UserRightsId, string Username, string Password, string EmployeeName, string UserSection, string ReceivingStatus, int Position, string EmployeeLastName, int Department, string RequestorType, string Unit, string Gender, string Mode)
+        {
+            this.ConnectionInit();
+            this.dSet.Clear();
+            this.dSet = objStorProc.sp_userfileIncrement(0,
+                UserRightsId,
+                Username,
+                Password,
+                EmployeeName,
+                UserSection,
+                ReceivingStatus,
+                Position,
+                EmployeeLastName,
+                Department,
+                RequestorType,
+                Unit,
+                Gender,
+                "add");
+        }
+
         public void GetUsers(DataGridView DataGridViews)
         {
             try

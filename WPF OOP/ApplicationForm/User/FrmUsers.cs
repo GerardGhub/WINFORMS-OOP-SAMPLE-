@@ -41,7 +41,7 @@ namespace WPF_OOP.ApplicationForm.User
             this.UserFileRepository.GetUsers (this.DgvUsers);
 
             this.LblTotalRecords.Text = this.DgvUsers.RowCount.ToString();
-            -
+            
             this.textBox1.Text = String.Empty;
         }
 

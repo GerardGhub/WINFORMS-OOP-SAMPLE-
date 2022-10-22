@@ -38,6 +38,10 @@
             this.TxtPassword = new System.Windows.Forms.TextBox();
             this.BtnSave = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.CboUserRole = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.CboDepartment = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // TxtFirstName
@@ -128,12 +132,52 @@
             this.textBox1.TabIndex = 9;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
+            // CboUserRole
+            // 
+            this.CboUserRole.FormattingEnabled = true;
+            this.CboUserRole.Location = new System.Drawing.Point(75, 184);
+            this.CboUserRole.Name = "CboUserRole";
+            this.CboUserRole.Size = new System.Drawing.Size(147, 24);
+            this.CboUserRole.TabIndex = 10;
+            this.CboUserRole.SelectionChangeCommitted += new System.EventHandler(this.CboUserRole_SelectionChangeCommitted);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(76, 165);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(39, 16);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Role:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(307, 165);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(80, 16);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Department:";
+            // 
+            // CboDepartment
+            // 
+            this.CboDepartment.FormattingEnabled = true;
+            this.CboDepartment.Location = new System.Drawing.Point(306, 184);
+            this.CboDepartment.Name = "CboDepartment";
+            this.CboDepartment.Size = new System.Drawing.Size(147, 24);
+            this.CboDepartment.TabIndex = 12;
+            this.CboDepartment.SelectionChangeCommitted += new System.EventHandler(this.CboDepartment_SelectionChangeCommitted);
+            // 
             // FrmAddorEditUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(540, 616);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.CboDepartment);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.CboUserRole);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.BtnSave);
             this.Controls.Add(this.label4);
@@ -166,5 +210,9 @@
         private System.Windows.Forms.TextBox TxtPassword;
         private System.Windows.Forms.Button BtnSave;
         public System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox CboUserRole;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox CboDepartment;
     }
 }

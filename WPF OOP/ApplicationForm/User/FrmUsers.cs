@@ -51,6 +51,7 @@ namespace WPF_OOP.ApplicationForm.User
 
         private void BtnNew_Click(object sender, EventArgs e)
         {
+            this.BtnNew.Visible = false;
             this.UserFile.Mode = "ADD";
            FrmAddorEditUser  showModal = new FrmAddorEditUser(this, this.UserFile.Mode);
             showModal.ShowDialog();
@@ -58,6 +59,7 @@ namespace WPF_OOP.ApplicationForm.User
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+            this.BtnNew.Visible = true;
             this.FrmUsers_Load(sender, e);
         }
 
@@ -74,5 +76,94 @@ namespace WPF_OOP.ApplicationForm.User
 
             this.LblTotalRecords.Text = this.DgvUsers.RowCount.ToString();
         }
+
+        private void TxtSearch_TextChanged(object sender, EventArgs e)
+        {
+            this.load_search();
+            this.doSearchOnMaterialTextBox();
+        }
+
+        public void load_search()
+        {
+            try
+            {
+                if (this.RadioActive.Checked == true)
+                {
+
+                    this.dset_emp.Clear();
+                    this.dset_emp = g_objStoredProcCollection.sp_getMajorTables("usercurrentcellchanged");
+                }
+                else
+                {
+
+                    this.dset_emp.Clear();
+                    this.dset_emp = g_objStoredProcCollection.sp_getMajorTables("InactiveUserCurrentCellChanged");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+
+
+
+
+        }
+
+        DataSet dset_emp = new DataSet();
+        public void doSearchOnMaterialTextBox()
+        {
+            try
+            {
+                if (dset_emp.Tables.Count > 0)
+                {
+                    DataView dv = new DataView(dset_emp.Tables[0]);
+
+
+                    dv.RowFilter = "employee_name like '%" + this.TxtSearch.Text + "%' or employee_lastname like '%" + this.TxtSearch.Text + "%'   ";
+
+
+                    this.DgvUsers.DataSource = dv;
+                    this.LblTotalRecords.Text = this.DgvUsers.RowCount.ToString();
+                }
+            }
+            catch (SyntaxErrorException)
+            {
+                MessageBox.Show("Invalid character found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+            catch (EvaluateException)
+            {
+                MessageBox.Show("Invalid character found 2.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+        }
+
+        private void BtnInActive_Click(object sender, EventArgs e)
+        {
+
+            //Start
+            if (this.RadioActive.Checked == true)
+            {
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to deactivate?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    if (this.DgvUsers.Rows.Count > 0)
+                    {
+
+                    }
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+                        //End
+
+                    }
     }
 }

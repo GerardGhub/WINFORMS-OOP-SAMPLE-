@@ -31,17 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUsers));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DgvUsers = new System.Windows.Forms.DataGridView();
-            this.userfile_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.user_rights_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.password = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employee_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employee_lastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.BtnNew = new System.Windows.Forms.ToolStripButton();
             this.BtnEdit = new System.Windows.Forms.ToolStripButton();
-            this.matBtnDelete = new System.Windows.Forms.ToolStripButton();
+            this.BtnInActive = new System.Windows.Forms.ToolStripButton();
             this.matBtnSave = new System.Windows.Forms.ToolStripButton();
             this.matBtnCancel = new System.Windows.Forms.ToolStripButton();
             this.label1 = new System.Windows.Forms.Label();
@@ -50,6 +44,15 @@
             this.RadioActive = new System.Windows.Forms.RadioButton();
             this.RadioInActive = new System.Windows.Forms.RadioButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.TxtSearch = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.userfile_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_rights_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employee_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employee_lastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.is_active = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvUsers)).BeginInit();
             this.panel1.SuspendLayout();
@@ -60,9 +63,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.DgvUsers);
-            this.groupBox1.Location = new System.Drawing.Point(31, 141);
+            this.groupBox1.Location = new System.Drawing.Point(31, 164);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1086, 326);
+            this.groupBox1.Size = new System.Drawing.Size(1350, 326);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Users";
@@ -71,6 +74,7 @@
             // 
             this.DgvUsers.AllowUserToAddRows = false;
             this.DgvUsers.AllowUserToDeleteRows = false;
+            this.DgvUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.userfile_id,
@@ -78,74 +82,22 @@
             this.username,
             this.password,
             this.employee_name,
-            this.employee_lastname});
+            this.employee_lastname,
+            this.is_active});
             this.DgvUsers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgvUsers.Location = new System.Drawing.Point(3, 18);
             this.DgvUsers.Name = "DgvUsers";
             this.DgvUsers.ReadOnly = true;
             this.DgvUsers.RowHeadersWidth = 51;
             this.DgvUsers.RowTemplate.Height = 24;
-            this.DgvUsers.Size = new System.Drawing.Size(1080, 305);
+            this.DgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DgvUsers.Size = new System.Drawing.Size(1344, 305);
             this.DgvUsers.TabIndex = 0;
-            // 
-            // userfile_id
-            // 
-            this.userfile_id.DataPropertyName = "userfile_id";
-            this.userfile_id.HeaderText = "ID";
-            this.userfile_id.MinimumWidth = 6;
-            this.userfile_id.Name = "userfile_id";
-            this.userfile_id.ReadOnly = true;
-            this.userfile_id.Width = 125;
-            // 
-            // user_rights_id
-            // 
-            this.user_rights_id.DataPropertyName = "user_rights_id";
-            this.user_rights_id.HeaderText = "RIGHTS ID";
-            this.user_rights_id.MinimumWidth = 6;
-            this.user_rights_id.Name = "user_rights_id";
-            this.user_rights_id.ReadOnly = true;
-            this.user_rights_id.Width = 125;
-            // 
-            // username
-            // 
-            this.username.DataPropertyName = "username";
-            this.username.HeaderText = "USERNAME";
-            this.username.MinimumWidth = 6;
-            this.username.Name = "username";
-            this.username.ReadOnly = true;
-            this.username.Width = 125;
-            // 
-            // password
-            // 
-            this.password.DataPropertyName = "password";
-            this.password.HeaderText = "PASSWORD";
-            this.password.MinimumWidth = 6;
-            this.password.Name = "password";
-            this.password.ReadOnly = true;
-            this.password.Width = 125;
-            // 
-            // employee_name
-            // 
-            this.employee_name.DataPropertyName = "employee_name";
-            this.employee_name.HeaderText = "NAME";
-            this.employee_name.MinimumWidth = 6;
-            this.employee_name.Name = "employee_name";
-            this.employee_name.ReadOnly = true;
-            this.employee_name.Width = 125;
-            // 
-            // employee_lastname
-            // 
-            this.employee_lastname.DataPropertyName = "employee_lastname";
-            this.employee_lastname.HeaderText = "LASTNAME";
-            this.employee_lastname.MinimumWidth = 6;
-            this.employee_lastname.Name = "employee_lastname";
-            this.employee_lastname.ReadOnly = true;
-            this.employee_lastname.Width = 125;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.toolStrip2);
-            this.panel1.Location = new System.Drawing.Point(256, 43);
+            this.panel1.Location = new System.Drawing.Point(34, 79);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(570, 50);
             this.panel1.TabIndex = 5;
@@ -160,7 +112,7 @@
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.BtnNew,
             this.BtnEdit,
-            this.matBtnDelete,
+            this.BtnInActive,
             this.matBtnSave,
             this.matBtnCancel});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
@@ -187,13 +139,14 @@
             this.BtnEdit.Size = new System.Drawing.Size(83, 47);
             this.BtnEdit.Text = "&Edit";
             // 
-            // matBtnDelete
+            // BtnInActive
             // 
-            this.matBtnDelete.Image = ((System.Drawing.Image)(resources.GetObject("matBtnDelete.Image")));
-            this.matBtnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.matBtnDelete.Name = "matBtnDelete";
-            this.matBtnDelete.Size = new System.Drawing.Size(114, 47);
-            this.matBtnDelete.Text = "&InActive";
+            this.BtnInActive.Image = ((System.Drawing.Image)(resources.GetObject("BtnInActive.Image")));
+            this.BtnInActive.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BtnInActive.Name = "BtnInActive";
+            this.BtnInActive.Size = new System.Drawing.Size(114, 47);
+            this.BtnInActive.Text = "&InActive";
+            this.BtnInActive.Click += new System.EventHandler(this.BtnInActive_Click);
             // 
             // matBtnSave
             // 
@@ -217,7 +170,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(887, 483);
+            this.label1.Location = new System.Drawing.Point(1202, 508);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 16);
             this.label1.TabIndex = 6;
@@ -226,7 +179,7 @@
             // LblTotalRecords
             // 
             this.LblTotalRecords.AutoSize = true;
-            this.LblTotalRecords.Location = new System.Drawing.Point(984, 483);
+            this.LblTotalRecords.Location = new System.Drawing.Point(1299, 508);
             this.LblTotalRecords.Name = "LblTotalRecords";
             this.LblTotalRecords.Size = new System.Drawing.Size(79, 16);
             this.LblTotalRecords.TabIndex = 7;
@@ -234,10 +187,11 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(556, 18);
+            this.textBox1.Location = new System.Drawing.Point(699, 88);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(170, 22);
             this.textBox1.TabIndex = 3;
+            this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // RadioActive
@@ -268,17 +222,92 @@
             // 
             this.panel2.Controls.Add(this.RadioInActive);
             this.panel2.Controls.Add(this.RadioActive);
-            this.panel2.Location = new System.Drawing.Point(817, 79);
+            this.panel2.Location = new System.Drawing.Point(542, 12);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(246, 56);
             this.panel2.TabIndex = 10;
+            // 
+            // TxtSearch
+            // 
+            this.TxtSearch.Location = new System.Drawing.Point(106, 46);
+            this.TxtSearch.Name = "TxtSearch";
+            this.TxtSearch.Size = new System.Drawing.Size(320, 22);
+            this.TxtSearch.TabIndex = 11;
+            this.TxtSearch.TextChanged += new System.EventHandler(this.TxtSearch_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(44, 49);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 16);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Search :";
+            // 
+            // userfile_id
+            // 
+            this.userfile_id.DataPropertyName = "userfile_id";
+            this.userfile_id.HeaderText = "ID";
+            this.userfile_id.MinimumWidth = 6;
+            this.userfile_id.Name = "userfile_id";
+            this.userfile_id.ReadOnly = true;
+            // 
+            // user_rights_id
+            // 
+            this.user_rights_id.DataPropertyName = "user_rights_id";
+            this.user_rights_id.HeaderText = "RIGHTS ID";
+            this.user_rights_id.MinimumWidth = 6;
+            this.user_rights_id.Name = "user_rights_id";
+            this.user_rights_id.ReadOnly = true;
+            // 
+            // username
+            // 
+            this.username.DataPropertyName = "username";
+            this.username.HeaderText = "USERNAME";
+            this.username.MinimumWidth = 6;
+            this.username.Name = "username";
+            this.username.ReadOnly = true;
+            // 
+            // password
+            // 
+            this.password.DataPropertyName = "password";
+            this.password.HeaderText = "PASSWORD";
+            this.password.MinimumWidth = 6;
+            this.password.Name = "password";
+            this.password.ReadOnly = true;
+            // 
+            // employee_name
+            // 
+            this.employee_name.DataPropertyName = "employee_name";
+            this.employee_name.HeaderText = "NAME";
+            this.employee_name.MinimumWidth = 6;
+            this.employee_name.Name = "employee_name";
+            this.employee_name.ReadOnly = true;
+            // 
+            // employee_lastname
+            // 
+            this.employee_lastname.DataPropertyName = "employee_lastname";
+            this.employee_lastname.HeaderText = "LASTNAME";
+            this.employee_lastname.MinimumWidth = 6;
+            this.employee_lastname.Name = "employee_lastname";
+            this.employee_lastname.ReadOnly = true;
+            // 
+            // is_active
+            // 
+            this.is_active.DataPropertyName = "is_active";
+            this.is_active.HeaderText = "STATUS";
+            this.is_active.MinimumWidth = 6;
+            this.is_active.Name = "is_active";
+            this.is_active.ReadOnly = true;
             // 
             // FrmUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1145, 545);
+            this.ClientSize = new System.Drawing.Size(1393, 545);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.TxtSearch);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.LblTotalRecords);
@@ -311,20 +340,23 @@
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripButton BtnNew;
         private System.Windows.Forms.ToolStripButton BtnEdit;
-        private System.Windows.Forms.ToolStripButton matBtnDelete;
+        private System.Windows.Forms.ToolStripButton BtnInActive;
         private System.Windows.Forms.ToolStripButton matBtnSave;
         private System.Windows.Forms.ToolStripButton matBtnCancel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label LblTotalRecords;
         public System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.RadioButton RadioActive;
+        private System.Windows.Forms.RadioButton RadioInActive;
+        private System.Windows.Forms.Panel panel2;
+        public System.Windows.Forms.TextBox TxtSearch;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn userfile_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn user_rights_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn username;
         private System.Windows.Forms.DataGridViewTextBoxColumn password;
         private System.Windows.Forms.DataGridViewTextBoxColumn employee_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn employee_lastname;
-        private System.Windows.Forms.RadioButton RadioActive;
-        private System.Windows.Forms.RadioButton RadioInActive;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn is_active;
     }
 }

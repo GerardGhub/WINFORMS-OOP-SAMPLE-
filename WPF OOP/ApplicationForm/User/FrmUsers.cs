@@ -65,12 +65,23 @@ namespace WPF_OOP.ApplicationForm.User
 
         private void RadioActive_CheckedChanged(object sender, EventArgs e)
         {
+            this.BtnInActive.Text = "InActive";
+            this.GetActivatedUser();
+        }
+        private void GetActivatedUser()
+        {
             this.UserFileRepository.GetUsers(this.DgvUsers);
 
             this.LblTotalRecords.Text = this.DgvUsers.RowCount.ToString();
         }
 
         private void RadioInActive_CheckedChanged(object sender, EventArgs e)
+        {
+            this.BtnInActive.Text = "Activate";
+            this.GetDeactivateUser();
+        }
+
+        private void GetDeactivateUser()
         {
             this.UserFileRepository.GetUsersInactive(this.DgvUsers);
 
@@ -153,7 +164,8 @@ namespace WPF_OOP.ApplicationForm.User
                 {
                     if (this.DgvUsers.Rows.Count > 0)
                     {
-
+                        this.UserFileRepository.DeactivateUser(this.UserFile.Userfile_Id);
+                        this.GetActivatedUser();
                     }
                 }
                 else
@@ -161,9 +173,64 @@ namespace WPF_OOP.ApplicationForm.User
                     return;
                 }
             }
+            else
+            {
+           
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        if (this.DgvUsers.Rows.Count > 0)
+                        {
+                            this.UserFileRepository.ActivateUser(this.UserFile.Userfile_Id);
+                           this.GetDeactivateUser();
+                    }
+                    }
+                    else
+                    {
+                        return;
+                    }
+                
 
-                        //End
+
+            }
+
+            //End
+
+        }
+
+        private void DgvUsers_CurrentCellChanged(object sender, EventArgs e)
+        {
+            this.CurrentCellChanged();
+        }
+
+        public void CurrentCellChanged()
+        {
+            if (this.DgvUsers.RowCount > 0)
+            {
+                if (this.DgvUsers.CurrentRow != null)
+                {
+                    if (this.DgvUsers.CurrentRow.Cells["username"].Value != null)
+                    {
+
+                        this.UserFile.Userfile_Id = Convert.ToInt32(this.DgvUsers.CurrentRow.Cells["userfile_id"].Value.ToString());
+                        //UserFileEntity.Employee_Name = this.dgvUsers.CurrentRow.Cells["employee_name"].Value.ToString();
+                        //UserFileEntity.Employee_LastName = this.dgvUsers.CurrentRow.Cells["employee_lastname"].Value.ToString();
+                        //UserFileEntity.User_Rights_Name = this.dgvUsers.CurrentRow.Cells["user_rights_name"].Value.ToString();
+                        //UserFileEntity.UserName = this.dgvUsers.CurrentRow.Cells["username"].Value.ToString();
+                        //UserFileEntity.Password = this.dgvUsers.CurrentRow.Cells["password"].Value.ToString();
+                        //UserFileEntity.Position = this.dgvUsers.CurrentRow.Cells["Position"].Value.ToString();
+                        //UserFileEntity.User_Section = this.dgvUsers.CurrentRow.Cells["user_section"].Value.ToString();
+                        //UserFileEntity.Unit = this.dgvUsers.CurrentRow.Cells["Unit"].Value.ToString();
+                        //UserFileEntity.Receiving_Status = this.dgvUsers.CurrentRow.Cells["receiving_status"].Value.ToString();
+                        //UserFileEntity.Department = this.dgvUsers.CurrentRow.Cells["department_name"].Value.ToString();
+                        //UserFileEntity.Gender = dgvUsers.CurrentRow.Cells["gender"].Value.ToString();
+   
 
                     }
+
+                }
+            }
+        }
+
+
     }
 }

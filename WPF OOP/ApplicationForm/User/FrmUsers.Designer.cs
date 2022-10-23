@@ -86,6 +86,7 @@
             this.is_active});
             this.DgvUsers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgvUsers.Location = new System.Drawing.Point(3, 18);
+            this.DgvUsers.MultiSelect = false;
             this.DgvUsers.Name = "DgvUsers";
             this.DgvUsers.ReadOnly = true;
             this.DgvUsers.RowHeadersWidth = 51;
@@ -93,6 +94,7 @@
             this.DgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvUsers.Size = new System.Drawing.Size(1344, 305);
             this.DgvUsers.TabIndex = 0;
+            this.DgvUsers.CurrentCellChanged += new System.EventHandler(this.DgvUsers_CurrentCellChanged);
             // 
             // panel1
             // 

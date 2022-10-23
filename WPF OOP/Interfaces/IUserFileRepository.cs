@@ -14,6 +14,8 @@ namespace WPF_OOP.Repository
 
         void GetUsers(System.Windows.Forms.DataGridView DataGridViews);
         void GetUsersInactive(System.Windows.Forms.DataGridView DataGridViews);
+        void DeactivateUser(int UserId);
+        void ActivateUser(int UserId);
         void ValidateUserIfExist(string UserName, string FirstName, string LastName);
 
         void AddUser(int UserFileId, int UserRightsId, string Username, string Password, string EmployeeName, string UserSection,

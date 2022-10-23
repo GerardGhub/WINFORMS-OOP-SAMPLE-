@@ -17,6 +17,13 @@ namespace WPF_OOP.Repository
       IStoredProcedures objStorProc = null;
         int TotalRecords = 0;
 
+        public void ActivateUser(int UserId)
+        {
+            this.ConnectionInit();
+            this.dSet.Clear();
+            this.dSet = objStorProc.sp_userfile(UserId, "", "", "", "activate");
+        }
+
         public void AddUser(int UserFileId, int UserRightsId, string Username, string Password, string EmployeeName, string UserSection, string ReceivingStatus, int Position, string EmployeeLastName, int Department, string RequestorType, string Unit, string Gender, string Mode)
         {
             this.ConnectionInit();
@@ -35,6 +42,13 @@ namespace WPF_OOP.Repository
                 Unit,
                 Gender,
                 "add");
+        }
+
+        public void DeactivateUser(int UserId)
+        {
+            this.ConnectionInit();
+            this.dSet.Clear();
+            this.dSet = objStorProc.sp_userfile(UserId, "", "", "", "delete");
         }
 
         public void GetUsers(DataGridView DataGridViews)

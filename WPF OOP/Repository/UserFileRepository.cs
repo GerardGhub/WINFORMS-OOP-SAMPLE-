@@ -53,6 +53,22 @@ namespace WPF_OOP.Repository
             }
         }
 
+        public void GetUsersInactive(DataGridView DataGridViews)
+        {
+            try
+            {
+
+                this.xClass.fillDataGridView(DataGridViews, "usersInactive", this.dSet);
+
+                this.TotalRecords = DataGridViews.RowCount;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         public void LoginValidation(string Username, string Password)
         {
             this.ConnectionInit();

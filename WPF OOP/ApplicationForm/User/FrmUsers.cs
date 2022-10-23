@@ -37,10 +37,9 @@ namespace WPF_OOP.ApplicationForm.User
         private void FrmUsers_Load(object sender, EventArgs e)
         {
             this.ConnetionString();
+            this.RadioActive.Checked = true;
 
-            this.UserFileRepository.GetUsers (this.DgvUsers);
 
-            this.LblTotalRecords.Text = this.DgvUsers.RowCount.ToString();
             
             this.textBox1.Text = String.Empty;
         }
@@ -60,6 +59,20 @@ namespace WPF_OOP.ApplicationForm.User
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             this.FrmUsers_Load(sender, e);
+        }
+
+        private void RadioActive_CheckedChanged(object sender, EventArgs e)
+        {
+            this.UserFileRepository.GetUsers(this.DgvUsers);
+
+            this.LblTotalRecords.Text = this.DgvUsers.RowCount.ToString();
+        }
+
+        private void RadioInActive_CheckedChanged(object sender, EventArgs e)
+        {
+            this.UserFileRepository.GetUsersInactive(this.DgvUsers);
+
+            this.LblTotalRecords.Text = this.DgvUsers.RowCount.ToString();
         }
     }
 }

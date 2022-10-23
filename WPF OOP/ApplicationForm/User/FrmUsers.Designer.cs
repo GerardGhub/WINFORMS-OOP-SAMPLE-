@@ -31,6 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUsers));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DgvUsers = new System.Windows.Forms.DataGridView();
+            this.userfile_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_rights_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employee_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employee_lastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.BtnNew = new System.Windows.Forms.ToolStripButton();
@@ -41,16 +47,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.LblTotalRecords = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.userfile_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.user_rights_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.password = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employee_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employee_lastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RadioActive = new System.Windows.Forms.RadioButton();
+            this.RadioInActive = new System.Windows.Forms.RadioButton();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvUsers)).BeginInit();
             this.panel1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -83,6 +87,60 @@
             this.DgvUsers.RowTemplate.Height = 24;
             this.DgvUsers.Size = new System.Drawing.Size(1080, 305);
             this.DgvUsers.TabIndex = 0;
+            // 
+            // userfile_id
+            // 
+            this.userfile_id.DataPropertyName = "userfile_id";
+            this.userfile_id.HeaderText = "ID";
+            this.userfile_id.MinimumWidth = 6;
+            this.userfile_id.Name = "userfile_id";
+            this.userfile_id.ReadOnly = true;
+            this.userfile_id.Width = 125;
+            // 
+            // user_rights_id
+            // 
+            this.user_rights_id.DataPropertyName = "user_rights_id";
+            this.user_rights_id.HeaderText = "RIGHTS ID";
+            this.user_rights_id.MinimumWidth = 6;
+            this.user_rights_id.Name = "user_rights_id";
+            this.user_rights_id.ReadOnly = true;
+            this.user_rights_id.Width = 125;
+            // 
+            // username
+            // 
+            this.username.DataPropertyName = "username";
+            this.username.HeaderText = "USERNAME";
+            this.username.MinimumWidth = 6;
+            this.username.Name = "username";
+            this.username.ReadOnly = true;
+            this.username.Width = 125;
+            // 
+            // password
+            // 
+            this.password.DataPropertyName = "password";
+            this.password.HeaderText = "PASSWORD";
+            this.password.MinimumWidth = 6;
+            this.password.Name = "password";
+            this.password.ReadOnly = true;
+            this.password.Width = 125;
+            // 
+            // employee_name
+            // 
+            this.employee_name.DataPropertyName = "employee_name";
+            this.employee_name.HeaderText = "NAME";
+            this.employee_name.MinimumWidth = 6;
+            this.employee_name.Name = "employee_name";
+            this.employee_name.ReadOnly = true;
+            this.employee_name.Width = 125;
+            // 
+            // employee_lastname
+            // 
+            this.employee_lastname.DataPropertyName = "employee_lastname";
+            this.employee_lastname.HeaderText = "LASTNAME";
+            this.employee_lastname.MinimumWidth = 6;
+            this.employee_lastname.Name = "employee_lastname";
+            this.employee_lastname.ReadOnly = true;
+            this.employee_lastname.Width = 125;
             // 
             // panel1
             // 
@@ -176,65 +234,44 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(910, 43);
+            this.textBox1.Location = new System.Drawing.Point(556, 18);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(170, 22);
             this.textBox1.TabIndex = 3;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // userfile_id
+            // RadioActive
             // 
-            this.userfile_id.DataPropertyName = "userfile_id";
-            this.userfile_id.HeaderText = "ID";
-            this.userfile_id.MinimumWidth = 6;
-            this.userfile_id.Name = "userfile_id";
-            this.userfile_id.ReadOnly = true;
-            this.userfile_id.Width = 125;
+            this.RadioActive.AutoSize = true;
+            this.RadioActive.Location = new System.Drawing.Point(8, 23);
+            this.RadioActive.Name = "RadioActive";
+            this.RadioActive.Size = new System.Drawing.Size(65, 20);
+            this.RadioActive.TabIndex = 8;
+            this.RadioActive.TabStop = true;
+            this.RadioActive.Text = "Active";
+            this.RadioActive.UseVisualStyleBackColor = true;
+            this.RadioActive.CheckedChanged += new System.EventHandler(this.RadioActive_CheckedChanged);
             // 
-            // user_rights_id
+            // RadioInActive
             // 
-            this.user_rights_id.DataPropertyName = "user_rights_id";
-            this.user_rights_id.HeaderText = "RIGHTS ID";
-            this.user_rights_id.MinimumWidth = 6;
-            this.user_rights_id.Name = "user_rights_id";
-            this.user_rights_id.ReadOnly = true;
-            this.user_rights_id.Width = 125;
+            this.RadioInActive.AutoSize = true;
+            this.RadioInActive.Location = new System.Drawing.Point(126, 23);
+            this.RadioInActive.Name = "RadioInActive";
+            this.RadioInActive.Size = new System.Drawing.Size(75, 20);
+            this.RadioInActive.TabIndex = 9;
+            this.RadioInActive.TabStop = true;
+            this.RadioInActive.Text = "InActive";
+            this.RadioInActive.UseVisualStyleBackColor = true;
+            this.RadioInActive.CheckedChanged += new System.EventHandler(this.RadioInActive_CheckedChanged);
             // 
-            // username
+            // panel2
             // 
-            this.username.DataPropertyName = "username";
-            this.username.HeaderText = "USERNAME";
-            this.username.MinimumWidth = 6;
-            this.username.Name = "username";
-            this.username.ReadOnly = true;
-            this.username.Width = 125;
-            // 
-            // password
-            // 
-            this.password.DataPropertyName = "password";
-            this.password.HeaderText = "PASSWORD";
-            this.password.MinimumWidth = 6;
-            this.password.Name = "password";
-            this.password.ReadOnly = true;
-            this.password.Width = 125;
-            // 
-            // employee_name
-            // 
-            this.employee_name.DataPropertyName = "employee_name";
-            this.employee_name.HeaderText = "NAME";
-            this.employee_name.MinimumWidth = 6;
-            this.employee_name.Name = "employee_name";
-            this.employee_name.ReadOnly = true;
-            this.employee_name.Width = 125;
-            // 
-            // employee_lastname
-            // 
-            this.employee_lastname.DataPropertyName = "employee_lastname";
-            this.employee_lastname.HeaderText = "LASTNAME";
-            this.employee_lastname.MinimumWidth = 6;
-            this.employee_lastname.Name = "employee_lastname";
-            this.employee_lastname.ReadOnly = true;
-            this.employee_lastname.Width = 125;
+            this.panel2.Controls.Add(this.RadioInActive);
+            this.panel2.Controls.Add(this.RadioActive);
+            this.panel2.Location = new System.Drawing.Point(817, 79);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(246, 56);
+            this.panel2.TabIndex = 10;
             // 
             // FrmUsers
             // 
@@ -242,6 +279,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1145, 545);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.LblTotalRecords);
             this.Controls.Add(this.label1);
@@ -258,6 +296,8 @@
             this.panel1.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -283,5 +323,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn password;
         private System.Windows.Forms.DataGridViewTextBoxColumn employee_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn employee_lastname;
+        private System.Windows.Forms.RadioButton RadioActive;
+        private System.Windows.Forms.RadioButton RadioInActive;
+        private System.Windows.Forms.Panel panel2;
     }
 }

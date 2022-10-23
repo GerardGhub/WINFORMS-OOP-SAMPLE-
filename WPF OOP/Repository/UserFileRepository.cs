@@ -95,6 +95,20 @@ namespace WPF_OOP.Repository
 
         }
 
+        public void SearchActiveUser(string Mode)
+        {
+            this.ConnectionInit();
+            this.dSet.Clear();
+            this.dSet = objStorProc.sp_getMajorTables(Mode);
+        }
+
+        public void SearchInActiveUser(string Mode)
+        {
+            this.ConnectionInit();
+            this.dSet.Clear();
+            this.dSet = objStorProc.sp_getMajorTables(Mode);
+        }
+
         public void ValidateUserIfExist(string UserName, string FirstName, string LastName)
         {
             this.ConnectionInit();

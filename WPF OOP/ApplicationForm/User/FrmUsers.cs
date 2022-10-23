@@ -18,29 +18,20 @@ namespace WPF_OOP.ApplicationForm.User
 {
     public partial class FrmUsers : Form
     {
-
-
-
-        UserFileRepository UserFileRepository = new UserFileRepository();
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        readonly UserFileRepository UserFileRepository = new UserFileRepository();
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         IStoredProcedures g_objStoredProcCollection = null;
         readonly myclasses xClass = new myclasses();
-
-        UserFile UserFile = new UserFile();
+        readonly UserFile UserFile = new UserFile();
         public FrmUsers()
         {
             InitializeComponent();
         }
 
-
-
         private void FrmUsers_Load(object sender, EventArgs e)
         {
             this.ConnetionString();
-            this.RadioActive.Checked = true;
-
-
-            
+            this.RadioActive.Checked = true;            
             this.textBox1.Text = String.Empty;
         }
 
@@ -90,25 +81,21 @@ namespace WPF_OOP.ApplicationForm.User
 
         private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
-            this.load_search();
-            this.doSearchOnMaterialTextBox();
+            this.SearchProc();
+            this.DoSearchOnMaterialTextBox();
         }
 
-        public void load_search()
+        public void SearchProc()
         {
             try
             {
                 if (this.RadioActive.Checked == true)
                 {
-
-                    this.dset_emp.Clear();
-                    this.dset_emp = g_objStoredProcCollection.sp_getMajorTables("usercurrentcellchanged");
+                    this.UserFileRepository.SearchActiveUser("usercurrentcellchanged");
                 }
                 else
                 {
-
-                    this.dset_emp.Clear();
-                    this.dset_emp = g_objStoredProcCollection.sp_getMajorTables("InactiveUserCurrentCellChanged");
+                    this.UserFileRepository.SearchInActiveUser("InactiveUserCurrentCellChanged");
                 }
             }
             catch (Exception ex)
@@ -123,17 +110,19 @@ namespace WPF_OOP.ApplicationForm.User
 
         }
 
-        DataSet dset_emp = new DataSet();
-        public void doSearchOnMaterialTextBox()
+
+        public void DoSearchOnMaterialTextBox()
         {
             try
             {
-                if (dset_emp.Tables.Count > 0)
+                if (this.UserFileRepository.dSet.Tables.Count > 0)
                 {
-                    DataView dv = new DataView(dset_emp.Tables[0]);
+                    DataView dv = new DataView(this.UserFileRepository.dSet.Tables[0]);
 
 
-                    dv.RowFilter = "employee_name like '%" + this.TxtSearch.Text + "%' or employee_lastname like '%" + this.TxtSearch.Text + "%'   ";
+                    dv.RowFilter = "employee_name like '%" + this.TxtSearch.Text + "%' " +
+                        "or employee_lastname like '%" + this.TxtSearch.Text + "%' " +
+                        "or username like '%" + this.TxtSearch.Text + "%'   ";
 
 
                     this.DgvUsers.DataSource = dv;
@@ -212,18 +201,8 @@ namespace WPF_OOP.ApplicationForm.User
                     {
 
                         this.UserFile.Userfile_Id = Convert.ToInt32(this.DgvUsers.CurrentRow.Cells["userfile_id"].Value.ToString());
-                        //UserFileEntity.Employee_Name = this.dgvUsers.CurrentRow.Cells["employee_name"].Value.ToString();
-                        //UserFileEntity.Employee_LastName = this.dgvUsers.CurrentRow.Cells["employee_lastname"].Value.ToString();
-                        //UserFileEntity.User_Rights_Name = this.dgvUsers.CurrentRow.Cells["user_rights_name"].Value.ToString();
-                        //UserFileEntity.UserName = this.dgvUsers.CurrentRow.Cells["username"].Value.ToString();
-                        //UserFileEntity.Password = this.dgvUsers.CurrentRow.Cells["password"].Value.ToString();
-                        //UserFileEntity.Position = this.dgvUsers.CurrentRow.Cells["Position"].Value.ToString();
-                        //UserFileEntity.User_Section = this.dgvUsers.CurrentRow.Cells["user_section"].Value.ToString();
-                        //UserFileEntity.Unit = this.dgvUsers.CurrentRow.Cells["Unit"].Value.ToString();
-                        //UserFileEntity.Receiving_Status = this.dgvUsers.CurrentRow.Cells["receiving_status"].Value.ToString();
-                        //UserFileEntity.Department = this.dgvUsers.CurrentRow.Cells["department_name"].Value.ToString();
-                        //UserFileEntity.Gender = dgvUsers.CurrentRow.Cells["gender"].Value.ToString();
-   
+                        this.UserFile.Employee_Name = this.DgvUsers.CurrentRow.Cells["employee_name"].Value.ToString();
+                        this.UserFile.Employee_Lastname = this.DgvUsers.CurrentRow.Cells["employee_lastname"].Value.ToString();
 
                     }
 

@@ -18,6 +18,9 @@ namespace WPF_OOP.Repository
         void ActivateUser(int UserId);
         void ValidateUserIfExist(string UserName, string FirstName, string LastName);
 
+        void SearchActiveUser(string Mode);
+        void SearchInActiveUser(string Mode);
+
         void AddUser(int UserFileId, int UserRightsId, string Username, string Password, string EmployeeName, string UserSection,
             string ReceivingStatus, int Position, string EmployeeLastName, int Department, string RequestorType, string Unit,
             string Gender, string Mode);
